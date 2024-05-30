@@ -3,13 +3,15 @@ import styled from 'styled-components'
 export const MenuBar = styled.aside`
   background-color: #052539;
   max-width: 351px;
-  height: 714px;
+  height: 784px;
+  position: relative;
   .Itens {
     margin-top: 170px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    align-items: center;
     ul {
       width: 80%;
       padding: 22px;
@@ -21,7 +23,7 @@ export const MenuBar = styled.aside`
       li {
         font-weight: bold;
         font-size: 28px;
-        padding-bottom: 8px;
+        padding-bottom: 12px;
         padding-top: 8px;
         a {
           text-decoration: none;
@@ -32,5 +34,13 @@ export const MenuBar = styled.aside`
         }
       }
     }
+    .footer {
+      padding-bottom: 12px;
+      img {
+        text-align: center;
+
+      }
+    }
+
   }
 `
