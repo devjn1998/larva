@@ -23,6 +23,13 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 351px auto;
   column-gap: 14px;
+  @media (max-width: 768px) {
+    grid-template-columns: 240px auto;
+  }
+  @media (max-width: 430px) {
+    grid-template-columns: 100%;
+    margin-top: 88px;
+  }
 `
 
 export const ContainerHeader = styled.header`

@@ -1,31 +1,29 @@
 import { useState } from 'react'
-import imgCarousel from '../../img/componentes/carousel.png'
-import produto1 from '../../img/produtos/produto1.jpg'
-import produto2 from '../../img/produtos/produto2.jpg'
-import produto3 from '../../img/produtos/produto3.jpg'
-import produto4 from '../../img/produtos/produto4.jpg'
-import { CarouselItens, Produtos } from './styles'
-import next from '../../img/icons/next.png'
-import prev from '../../img/icons/prev.png'
+import buttonRunSite from '../../img/componentes/botao2.png'
+import imgFooter from '../../img/componentes/footer.png'
+import imgCarousel from '../../img/componentes/larva-apresentation.jpg'
+import { CarouselItens, ProdutosStyles } from './styles'
+// const Sedas = [
+//   { src: produto1 },
+//   { src: produto2 },
+//   { src: produto3 },
+//   { src: produto4 }
+// ]
+// const Piteiras = [{ src: produto5 }]
+// const Bongs = [{ src: produto5 }]
+// const Silicones = [{ src: produto5 }]
+// const Acessorios = [{ src: produto5 }]
 
-const Carousel = () => {
+const Carousel = ({ imagens }: any) => {
+  const [activeTab, setActiveTab] = useState('Sedas')
   const [currentSlide, setCurrentSlide] = useState(0)
-
-  const handlePrev = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? 3 : prevSlide - 1))
-  }
-
-  const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 3 ? 0 : prevSlide + 1))
-  }
-
   return (
     <CarouselItens>
       <div className="imagem">
         <img src={imgCarousel} alt="" />
       </div>
-      <Produtos>
-        <ul>
+      <ProdutosStyles>
+        {/* <ul>
           {Array.from({ length: 4 }, (_, index) => (
             <li className="carousel" key={index}>
               <a href="#">
@@ -44,20 +42,64 @@ const Carousel = () => {
               </a>
             </li>
           ))}
+        </ul> */}
+        <ul>
+          {imagens.map((image: any, index: any) => (
+            <>
+              <li key={index}>
+                <a href="#">
+                  <img
+                    className="products"
+                    src={image}
+                    alt=""
+                    onClick={() => setCurrentSlide(index + 1)}
+                  />
+                </a>
+              </li>
+            </>
+          ))}
+          {/* {getActiveTabProducts().map((item, index) => (
+            <li className="carousel" key={index}>
+              <a href="#">
+                <img
+                  src={item.src}
+                  alt=""
+                  onClick={() => setCurrentSlide(index)}
+                />
+              </a>
+            </li>
+          ))} */}
+          <div className="go-site-mobile">
+            <a href="#">
+              <img className="buttonRunSite" src={buttonRunSite} alt="" />
+            </a>
+          </div>
         </ul>
-      </Produtos>
-      <button className="carousel-button prev" onClick={handlePrev}>
-        <span>
-          <img src={prev} alt="" />
-        </span>
-      </button>
-      <button className="carousel-button next" onClick={handleNext}>
-        <span>
-          <img src={next} alt="" />
-        </span>
-      </button>
+      </ProdutosStyles>
+      <div className="footer-mobile">
+        <a href="#">
+          <img src={imgFooter} alt="" />
+        </a>
+      </div>
     </CarouselItens>
   )
+
+  // function getActiveTabProducts() {
+  //   switch (activeTab) {
+  //     case 'Sedas':
+  //       return Sedas
+  //     case 'Piteiras':
+  //       return Piteiras
+  //     case 'Bongs':
+  //       return Bongs
+  //     case 'Silicones':
+  //       return Silicones
+  //     case 'Acessorios':
+  //       return Acessorios
+  //     default:
+  //       return []
+  //   }
+  // }
 }
 
 export default Carousel

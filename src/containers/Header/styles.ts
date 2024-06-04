@@ -6,22 +6,23 @@ export const HeaderMenu = styled.div`
   max-width: 100%;
   width: 100%;
   position: relative;
-  .logo-larva {
-    width: 189px;
-    height: 109px;
-    position: absolute;
-    top: 1;
-    left: 98px;
-    z-index: 99999;
-    padding-top: 12px;
+  @media (max-width: 768px) {
   }
+  @media (max-width: 430px) {
+    display: block;
+  }
+
   .logo-nome {
     max-width: 163px;
     width: 100%;
     height: 79px;
     position: absolute;
-    left: 294px;
     z-index: 9999;
+    padding: 0 12px 0 12px;
+    @media (max-width: 430px) {
+      display: block;
+      justify-content: center;
+    }
   }
   ul {
     list-style: none;
@@ -29,6 +30,11 @@ export const HeaderMenu = styled.div`
     max-width: 100%;
     width: 100%;
     justify-content: flex-end;
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 430px) {
+      display: none;
+    }
     li {
       padding: 6px 6px 6px 6px;
     }
