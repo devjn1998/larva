@@ -66,6 +66,7 @@ export const MenuBar = styled.aside`
       max-width: 100%;
       width: 100%;
       padding-bottom: 12px;
+      text-align: center;
       @media (max-width: 768px) {
         max-width: 100%;
         width: 100%;
